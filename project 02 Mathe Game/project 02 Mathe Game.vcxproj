@@ -125,6 +125,9 @@
   <ItemGroup>
     <ClCompile Include="project 02 Mathe Game.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyInPutLib.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

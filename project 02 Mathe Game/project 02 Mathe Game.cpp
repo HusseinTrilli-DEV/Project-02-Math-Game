@@ -1,31 +1,12 @@
 #include <iostream>
 #include<cstdlib>
+#include "MyInPutLib.h";
+
 using namespace std;
   
 enum enQuestionLevel { Easy = 1, Med = 2, Hard = 3, Max = 4 };
 enum enOperationType { Add = 1, Sub = 2, Mul = 3, Div = 4, Mix = 5 };
 
-int RandomNumber(int From, int To)
-{
-    // rand() % (To - From + 1) yields a number between 0 and (To - From).
-    // Adding From shifts the range to [From, To].
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;  // Return the generated random number.
-}
-
-int ShowHowManyRound()
-{
-   int Rounds=1;
-    do
-    {
-        cout << "How Many Questuions do you need to to answer ?" ;
-        cin >> Rounds;
-
-    } while (Rounds > 10 || Rounds < 1);
-
-    return Rounds;
-
-}
 
 int ReadLevel()
 {
@@ -62,16 +43,16 @@ int QuestionLevelNumber(enQuestionLevel LEVEL)
     switch (LEVEL)
     {
     case enQuestionLevel::Easy:
-        return RandomNumber(1, 30);
+        return MyInPut::RandomNumber(1, 30);
         break;
     case enQuestionLevel::Med:
-        return RandomNumber(30, 60);
+        return MyInPut::RandomNumber(30, 60);
         break;
     case enQuestionLevel::Hard:
-        return RandomNumber(60, 90);
+        return MyInPut::RandomNumber(60, 90);
         break;
     default:
-        return RandomNumber(1, 90);
+        return MyInPut::RandomNumber(1, 90);
     }
 }
 
@@ -214,7 +195,7 @@ void StartGame()
     do
     {
         ResetScreen();  stGameInfo Game;
-        FillRoundsInfo(ShowHowManyRound(),Game);
+        FillRoundsInfo(MyInPut::ShowHowManyRound(),Game);
       
         FinalResultsShow( Game);
         Finalresults(Game);
